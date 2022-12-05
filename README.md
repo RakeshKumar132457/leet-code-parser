@@ -4,7 +4,7 @@
 
 # TODO
 
--   [ ] Still have to make full fledged CLI
+-   [ ] Complete the CLI part
 -   [ ] Ability to select question based on Question number
 -   [ ] Save all questions in the DB for quick access
 
