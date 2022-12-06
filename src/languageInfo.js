@@ -3,7 +3,7 @@ export const getLanguageInfo = (ext) => {
 		c: { languageName: "c", extension: "c", nameType: "camel" },
 		cpp: { languageName: "cpp", extension: "cpp", nameType: "camel" },
 		golang: { languageName: "golang", extension: "go", nameType: "camel" },
-		java: { languageName: "java", extension: "java", nameType: "camel" },
+		java: { languageName: "java", extension: "java", nameType: "title" },
 		javascript: {
 			languageName: "javascript",
 			extension: "js",
@@ -14,9 +14,9 @@ export const getLanguageInfo = (ext) => {
 			extension: "py",
 			nameType: "camel",
 		},
-		rust: { languageName: "rust", extension: "rs", nameType: "camel" },
+		rust: { languageName: "rust", extension: "rs", nameType: "snake" },
 		typescript: {
-			languageName: "typescript2",
+			languageName: "typescript",
 			extension: "ts",
 			nameType: "camel",
 		},
