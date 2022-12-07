@@ -156,3 +156,78 @@ export const getStates = (userName) => {
         `,
 	};
 };
+
+export const getAllProblems = () => {
+	return {
+		query: `
+           query problemsetQuestionList(
+                $categorySlug: String,
+                $limit: Int,
+                $skip: Int,
+                $filters: QuestionListFilterInput
+                ) {
+                problemsetQuestionList: questionList(
+                    categorySlug: $categorySlug,
+                    limit: $limit,
+                    skip: $skip,
+                    filters: $filters
+                ) {
+                    total: totalNum
+                    questions: data {
+                    acRate
+                    difficulty
+                    freqBar
+                    frontendQuestionId: questionFrontendId
+                    isFavor
+                    paidOnly: isPaidOnly
+                    status
+                    title
+                    titleSlug
+                    topicTags {
+                        name
+                        id
+                        slug
+                    }
+                    hasSolution
+                    hasVideoSolution
+                    }
+                }
+            }
+        `,
+		variables: {
+			categorySlug: "",
+			filters: {},
+			limit: 50,
+			skip: 0,
+		},
+	};
+};
+
+export const getTotal = () => {
+	return {
+		query: `
+          query problemsetQuestionList(
+            $categorySlug: String,
+            $limit: Int,
+            $skip: Int,
+            $filters: QuestionListFilterInput
+            ) {
+            problemsetQuestionList: questionList(
+                categorySlug: $categorySlug,
+                limit: $limit,
+                skip: $skip,
+                filters: $filters
+            ) {
+                total: totalNum
+            }
+            }
+
+ `,
+		variables: {
+			categorySlug: "",
+			filters: {},
+			limit: 50,
+			skip: 0,
+		},
+	};
+};

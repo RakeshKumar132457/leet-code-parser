@@ -11,8 +11,8 @@ export const getFileName = (fileName, nameType, extension) => {
 const snakeCase = (fileName) => {
 	return fileName
 		.split(" ")
-		.map((s, i) => {
-			return s.charAt(0).toLowerCase() + s.slice(1);
+		.map((s) => {
+			return isUpper(s) ? s : s.charAt(0).toLowerCase() + s.slice(1);
 		})
 		.join("_");
 };
@@ -20,8 +20,8 @@ const snakeCase = (fileName) => {
 const titleCase = (fileName) => {
 	return fileName
 		.split(" ")
-		.map((s, i) => {
-			return s.charAt(0).toUpperCase() + s.slice(1);
+		.map((s) => {
+			return isUpper(s) ? s : s.charAt(0).toUpperCase() + s.slice(1);
 		})
 		.join("");
 };
@@ -31,10 +31,14 @@ const camelCase = (fileName) => {
 		.split(" ")
 		.map((s, i) => {
 			if (i == 0) {
-				return s.charAt(0).toLowerCase() + s.slice(1);
+				return isUpper(s) ? s : s.charAt(0).toLowerCase() + s.slice(1);
 			} else {
-				return s.charAt(0).toUpperCase() + s.slice(1);
+				return isUpper(s) ? s : s.charAt(0).toUpperCase() + s.slice(1);
 			}
 		})
 		.join("");
+};
+
+const isUpper = (str) => {
+	return str === str.toUpperCase();
 };
