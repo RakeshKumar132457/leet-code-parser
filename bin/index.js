@@ -33,9 +33,9 @@ const main = async () => {
 		"typescript",
 	]);
 
-	//await getDailyProblem(TEMP_PATH, LANG_LIST);
-	const a = await fetchQuestion(getTotal());
-	console.log(a);
+	await getDailyProblem(TEMP_PATH, LANG_LIST);
+	//const a = await fetchQuestion(getTotal());
+	//console.log(a);
 };
 
 main();

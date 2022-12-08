@@ -8,7 +8,8 @@ export const getFileName = (fileName, nameType, extension) => {
 	}
 };
 
-const snakeCase = (fileName) => {
+let snakeCase = (fileName) => {
+	fileName = fileName.replace(/\W/g, " ");
 	return fileName
 		.split(" ")
 		.map((s) => {
@@ -18,6 +19,7 @@ const snakeCase = (fileName) => {
 };
 
 const titleCase = (fileName) => {
+	fileName = fileName.replace(/\W/g, " ");
 	return fileName
 		.split(" ")
 		.map((s) => {
@@ -27,6 +29,7 @@ const titleCase = (fileName) => {
 };
 
 const camelCase = (fileName) => {
+	fileName = fileName.replace(/\W/g, " ");
 	return fileName
 		.split(" ")
 		.map((s, i) => {
