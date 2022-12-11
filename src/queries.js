@@ -157,7 +157,7 @@ export const getStates = (userName) => {
 	};
 };
 
-export const getAllProblems = () => {
+export const getAllProblems = (limitQuestion) => {
 	return {
 		query: `
            query problemsetQuestionList(
@@ -197,7 +197,7 @@ export const getAllProblems = () => {
 		variables: {
 			categorySlug: "",
 			filters: {},
-			limit: 50,
+			limit: limitQuestion,
 			skip: 0,
 		},
 	};

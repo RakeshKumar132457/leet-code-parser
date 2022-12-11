@@ -2,23 +2,22 @@
 
 // Imports
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 import path from "path";
 import * as dotenv from "dotenv";
+import { getDailyProblem } from "../src/fetchProblem.js";
+import { fetchQuestion } from "../src/fetchData.js";
+import { getDailyCodingChallenge, getQuestionDetails } from "../src/queries.js";
 
 // User Imports
-import { getDailyProblem } from "../src/getProblems.js";
-import { fetchQuestion } from "../src/fetchData.js";
-import {
-	getAllProblems,
-	getCompanyDetails,
-	getQuestionDetails,
-	getStates,
-	getTotal,
-} from "../src/queries.js";
 
 // Import Configs
-const argv = yargs(process.argv.slice(2)).argv;
 dotenv.config();
+const argv = yargs(hideBin(process.argv))
+	.boolean("daily")
+	.array("lang")
+	.demandOption("daily")
+	.help().argv;
 
 // Main
 const main = async () => {
@@ -33,9 +32,19 @@ const main = async () => {
 		"typescript",
 	]);
 
-	await getDailyProblem(TEMP_PATH, LANG_LIST);
-	//const a = await fetchQuestion(getTotal());
-	//console.log(a);
+	//await getDailyProblem(TEMP_PATH, LANG_LIST);
+	//await mapAllProblems("questionMap");
+	if (argv.daily === true) {
+		let langList = new Set(argv.lang);
+		await getDailyProblem(process.cwd(), langList);
+	}
+	/* const a = await fetchQuestion(getDailyCodingChallenge());
+	const b = await a.json();
+	console.log(b); */
+
+	/* const questionDetails = await fetchQuestion(getQuestionDetails("two-sum"));
+	const a = await questionDetails.json();
+	console.log(a); */
 };
 
 main();
