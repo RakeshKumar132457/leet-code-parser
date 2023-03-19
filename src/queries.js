@@ -1,6 +1,6 @@
 export const getDailyCodingChallenge = () => {
-	return {
-		query: `
+    return {
+        query: `
             query questionOfToday {
                 activeDailyCodingChallengeQuestion {
                     date
@@ -26,12 +26,12 @@ export const getDailyCodingChallenge = () => {
                     }
                 }
             }`,
-	};
+    };
 };
 
 export const getQuestionDetails = (questionNameSlug) => {
-	return {
-		query: `
+    return {
+        query: `
             query questionData($titleSlug: String!) {
             question(titleSlug: $titleSlug) {
                 questionId
@@ -103,15 +103,15 @@ export const getQuestionDetails = (questionNameSlug) => {
                 __typename
             }
         }`,
-		variables: {
-			titleSlug: `${questionNameSlug}`,
-		},
-	};
+        variables: {
+            titleSlug: `${questionNameSlug}`,
+        },
+    };
 };
 
 export const getCompanyDetails = () => {
-	return {
-		query: `
+    return {
+        query: `
         query interviewOptions {
                 interviewed {
                     interviewedUrl
@@ -135,12 +135,12 @@ export const getCompanyDetails = () => {
                 }
             }
     `,
-	};
+    };
 };
 
 export const getStates = (userName) => {
-	return {
-		query: `
+    return {
+        query: `
             {
                 matchedUser(username: "${userName}") {
                     username
@@ -154,12 +154,12 @@ export const getStates = (userName) => {
                 }
             }
         `,
-	};
+    };
 };
 
 export const getAllProblems = (limitQuestion) => {
-	return {
-		query: `
+    return {
+        query: `
            query problemsetQuestionList(
                 $categorySlug: String,
                 $limit: Int,
@@ -194,18 +194,18 @@ export const getAllProblems = (limitQuestion) => {
                 }
             }
         `,
-		variables: {
-			categorySlug: "",
-			filters: {},
-			limit: limitQuestion,
-			skip: 0,
-		},
-	};
+        variables: {
+            categorySlug: "",
+            filters: {},
+            limit: limitQuestion,
+            skip: 0,
+        },
+    };
 };
 
 export const getTotal = () => {
-	return {
-		query: `
+    return {
+        query: `
           query problemsetQuestionList(
             $categorySlug: String,
             $limit: Int,
@@ -223,11 +223,11 @@ export const getTotal = () => {
             }
 
  `,
-		variables: {
-			categorySlug: "",
-			filters: {},
-			limit: 50,
-			skip: 0,
-		},
-	};
+        variables: {
+            categorySlug: "",
+            filters: {},
+            limit: 50,
+            skip: 0,
+        },
+    };
 };
